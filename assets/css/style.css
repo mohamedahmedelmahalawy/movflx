@@ -1,6 +1,11 @@
 :root {
   --color-primary: #fff;
-  --color-secondary: #50b5ff;
+  --color-secondary: #52b7ff;
+  --color-tertery: #7e8b9a;
+  --color-forth: #2b2d42;
+  --color-fifth: #f1f1f1;
+  --color-sixth: #387fb3;
+  --bs-primary-hover-bg: #4091cc;
 }
 *,
 *::before,
@@ -12,6 +17,7 @@
 body {
   font-family: "Plus Jakarta Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--color-tertery);
 }
 img {
   width: 100%;
@@ -22,10 +28,25 @@ li {
 }
 a {
   text-decoration: none;
+  color: var(--color-secondary);
+  transition: all 0.1s ease-in-out;
 }
+a:hover {
+  color: var(--color-tertery);
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+/* .main-circle {
+  animation: circle-small-scale 3s ease-in-out infinite alternate;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  background: var(--bs-primary-hover-bg);
+  border-radius: 50rem;
+} */
 
 .connect {
-  background-color: #50b5ff;
+  background-color: var(--color-secondary);
   color: var(--color-primary);
   text-align: center;
   padding: 30px;
@@ -36,19 +57,140 @@ a {
 }
 
 .connect__header {
-  font-size: 1.245rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.867rem;
   margin: 0.875rem;
 }
 .connect__para {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.575rem;
   margin-bottom: 0.875rem;
 }
 
 .register {
-  padding: 1.75rem;
+  padding: 1.7rem;
   text-align: center;
+  max-width: 566px;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.register__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.register__logo svg {
+  color: var(--color-secondary);
+}
+.register__logo span {
+  color: var(--color-forth);
+  font-size: 1.2132rem;
+  font-weight: 500;
+  line-height: 1.2132rem;
+}
+.register > p {
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.form {
+  /* padding: 1.75rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form label {
+  color: var(--color-forth);
+  font-weight: 700;
+  text-align: left;
+}
+.form__item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  /* margin-bottom: 20px; */
+}
+.form__item input {
+  outline: none;
+  border: var(--color-fifth) 1px solid;
+  padding: 0.65625rem;
+  color: var(--color-tertery);
+}
+.form__item input:focus {
+  border: var(--color-secondary) 1px solid;
+}
+.form__btn {
+  padding: 0.7rem 0.65625rem;
+  font-size: 0.77625rem;
+  font-weight: 600;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+.form__btn:hover {
+  background-color: var(--color-sixth);
+}
+.form__redirect {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-forth);
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    /* justify-content: space-between; */
+    height: 100vh;
+    align-items: center;
+  }
+  main section {
+    flex-basis: 50%;
+  }
+  .connect {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .connect .connect__login-img {
+    height: 40%;
+    margin-bottom: 3rem;
+  }
+  .connect .connect__login-img img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .connect__header {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  .connect__para {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .form {
+    gap: 30px;
+  }
+
+  .register__logo span {
+    color: var(--color-forth);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2132rem;
+  }
+  .register > p {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
 }
