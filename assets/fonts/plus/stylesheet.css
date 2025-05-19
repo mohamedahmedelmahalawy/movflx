@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-Bold.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-ExtraBold.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-ExtraLight.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-Light.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-Medium.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-Italic.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-Regular.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../fonts/plus/PlusJakartaSans-SemiBold.woff2") format("woff2"),
+    url("../../fonts/plus/PlusJakartaSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,54 @@
+:root {
+  --color-primary: #fff;
+  --color-secondary: #50b5ff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Plus Jakarta Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+img {
+  width: 100%;
+  border-radius: 7px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.connect {
+  background-color: #50b5ff;
+  color: var(--color-primary);
+  text-align: center;
+  padding: 30px;
+}
+.login-img {
+  width: 80%;
+  margin: 2.8125rem auto;
+}
+
+.connect__header {
+  font-size: 1.245rem;
+  font-weight: 600;
+  line-height: 1.867rem;
+  margin: 0.875rem;
+}
+.connect__para {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.575rem;
+  margin-bottom: 0.875rem;
+}
+
+.register {
+  padding: 1.75rem;
+  text-align: center;
+}
