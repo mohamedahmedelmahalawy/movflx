@@ -142,7 +142,7 @@ main {
   margin-top: 1.75rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   main {
     flex-direction: row;
     /* justify-content: space-between; */
@@ -160,16 +160,18 @@ main {
   }
   .connect .connect__login-img {
     height: 40%;
-    margin-bottom: 3rem;
+    /* width: 30%; */
+    margin-bottom: 1rem;
   }
   .connect .connect__login-img img {
     height: 100%;
     object-fit: cover;
+    /* object-position: 10% 30%; */
   }
 
   .connect__header {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
     line-height: 1.2;
   }
   .connect__para {
