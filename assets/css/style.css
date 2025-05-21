@@ -17,7 +17,6 @@
 body {
   font-family: "Plus Jakarta Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: var(--color-tertery);
 }
 img {
   width: 100%;
@@ -26,9 +25,13 @@ img {
 li {
   list-style: none;
 }
+.connect a,
+.register a {
+  color: var(--color-secondary);
+}
+
 a {
   text-decoration: none;
-  color: var(--color-secondary);
   transition: all 0.1s ease-in-out;
 }
 a:hover {
@@ -38,12 +41,6 @@ main {
   display: flex;
   flex-direction: column;
 }
-/* .main-circle {
-  animation: circle-small-scale 3s ease-in-out infinite alternate;
-  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
-  background: var(--bs-primary-hover-bg);
-  border-radius: 50rem;
-} */
 
 .connect {
   background-color: var(--color-secondary);
@@ -98,7 +95,7 @@ main {
   font-weight: 400;
 }
 .form {
-  /* padding: 1.75rem; */
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -112,7 +109,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  /* margin-bottom: 20px; */
 }
 .form__item input {
   outline: none;
@@ -145,7 +141,6 @@ main {
 @media (min-width: 1024px) {
   main {
     flex-direction: row;
-    /* justify-content: space-between; */
     height: 100vh;
     align-items: center;
   }
@@ -160,13 +155,11 @@ main {
   }
   .connect .connect__login-img {
     height: 40%;
-    /* width: 30%; */
     margin-bottom: 1rem;
   }
   .connect .connect__login-img img {
     height: 100%;
     object-fit: cover;
-    /* object-position: 10% 30%; */
   }
 
   .connect__header {
@@ -195,4 +188,57 @@ main {
     font-size: 1.2rem;
     font-weight: 400;
   }
+}
+
+/* ********************************************** */
+:root {
+  --color-bg: rgb(26, 25, 31);
+  --color-bg-two: rgb(33, 37, 41);
+  --color-text: #fff;
+}
+body {
+  color: var(--color-bg);
+}
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.navbar-home {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.navbar-home .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__links,
+.navbar__auth {
+  display: flex;
+}
+.navbar-home a {
+  color: var(--color-text);
+}
+.navbar__links a {
+  padding: 0 1rem;
+}
+.bg {
+  background-image: url("https://i.etsystatic.com/35367581/r/il/6e6d9d/5873534503/il_fullxfull.5873534503_bfj5.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  filter: blur(1px);
+}
+.bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.8s;
+  opacity: 0.99;
+  background-size: 100% 100%;
+  background-color: var(--color-bg);
 }
