@@ -339,6 +339,7 @@ main h2 {
   width: calc(100% - 30px);
   transform: translateY(110%);
   transition: var(--transition);
+  transition-duration: 0.25s;
   padding: 10px;
   height: calc(100% - 30px);
 }
