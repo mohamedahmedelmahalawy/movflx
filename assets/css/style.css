@@ -323,6 +323,7 @@ main {
 
   position: relative;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 .movie__image {
   overflow: hidden;
@@ -380,4 +381,23 @@ main {
     max-width: 90%;
     margin: 0 auto;
   }
+}
+.pages {
+  margin: 0 auto;
+}
+.fetch-next,
+.fetch-previous {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  width: fit-content;
+
+  border-radius: 15px;
+}
+
+.fetch-next:hover,
+.fetch-previous:hover {
+  color: var(--color-text-two);
 }

@@ -1,10 +1,10 @@
 import { options, IMG_PATH } from "./info.js";
 const moviesContainer = document.querySelector(".movies-container");
 
-async function fetchMovies(url) {
-  const res = await fetch(url, options);
+async function fetchMovies(url, pagenum = 1) {
+  const res = await fetch(url + pagenum, options);
   const data = await res.json();
-  console.log(data.results);
+
   displayMovies(data.results);
 }
 async function displayMovies(movies) {
