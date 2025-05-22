@@ -1,6 +1,15 @@
 import { options, IMG_PATH } from "./info.js";
 const moviesContainer = document.querySelector(".movies-container");
 
+async function searchMovies(pageNum = 1, query) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=${pageNum}&query="${query}"`,
+    options
+  );
+  const data = await res.json();
+  console.log(data.results);
+  displayMovies(data.results);
+}
 async function fetchMovies(url, pagenum = 1) {
   const res = await fetch(url + pagenum, options);
   const data = await res.json();
@@ -48,4 +57,4 @@ function rateColor(vote) {
   }
 }
 
-export { fetchMovies, displayMovies };
+export { fetchMovies, displayMovies, searchMovies };
