@@ -70,9 +70,13 @@ body {
   z-index: -1;
 }
 .navbar .container {
+  width: 100%;
+  height: 10%;
+  /* border: 0.0625rem solid var(--color-white); */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 3.125rem;
 }
 .navbar__logo img {
   width: 100%;
@@ -105,4 +109,154 @@ body {
   border-radius: 1.25rem;
   background-color: rgba(255, 255, 255, 0.3);
   color: var(--color-white);
+  margin: 1.25rem;
+}
+.navbar__search_user input::placeholder {
+  color: var(--color-white);
+}
+.navbar__search_user img {
+  width: 1.4375rem;
+  height: 1.4375rem;
+  border-radius: 50%;
+}
+.navbar__search_user .search {
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  width: 20rem;
+  height: 16.875rem;
+  /* border: 1px solid var(--color-white); */
+  z-index: 99999;
+  overflow-y: auto;
+}
+.navbar__search_user .search::-webkit-scrollbar {
+  width: 0.3125rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.3125rem;
+  visibility: hidden;
+}
+.navbar__search_user .search::-webkit-scrollbar-thumb {
+  width: 0.3125rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.3125rem;
+  visibility: hidden;
+}
+.navbar__search_user .search:hover::-webkit-scrollbar {
+  visibility: visible;
+}
+.navbar__search_user .search:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+.navbar__search_user .search .card {
+  position: relative;
+  width: 100%;
+  height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.3125rem;
+  padding: 0.1875rem 0;
+  display: none; //display none here untill I add JS
+}
+.navbar__search_user .search .card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(0.3125rem);
+  border-radius: 0.3125rem;
+  z-index: -1;
+}
+.navbar__search_user .search .card img {
+  width: 1.75rem;
+  height: 90%;
+  border-radius: 0.125rem;
+  margin-left: 0.5rem;
+}
+.navbar__search_user .search .card .cont {
+  margin-left: 0.625rem;
+  color: var(--color-white);
+}
+.navbar__search_user .search .cont h3 {
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 15.625rem;
+}
+.navbar__search_user .search .cont p {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.navbar__search_user .search .cont p span {
+  background-color: yellow;
+  color: var(--color-black);
+  padding: 0px 0.1875rem;
+  margin: 0 0.3125rem;
+  font-weight: 500;
+}
+header .content {
+  position: relative;
+  margin-top: 3.125rem;
+  color: var(--color-white);
+  padding-left: 3.125rem;
+}
+header .content h1 {
+  font-size: 3.125rem;
+}
+header .content p {
+  font-size: 0.6875rem;
+  width: 21.875rem;
+  word-break: break-all;
+}
+header .content .details {
+  display: flex;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+header .content .details h6 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.625rem;
+  margin-right: 10px;
+}
+header .content .details h5 {
+  color: rgb(142, 230, 48);
+  font-size: 0.625rem;
+  margin-right: 0.625rem;
+}
+header .content .details h4 {
+  color: var(--color-white);
+  font-size: 0.625rem;
+  margin-right: 0.625rem;
+}
+header .content .details h3 {
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  font-size: 0.625rem;
+}
+header .content .details h3 span {
+  background-color: yellow;
+  color: var(--color-black);
+  padding: 0px 0.1875rem;
+  margin: 0 0.3125rem 0 0.3125rem;
+  font-weight: 500;
+}
+header .content .details h3 i {
+  margin-right: 0.3125rem;
+}
+header .content .btns {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+header .content .btns a {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00bdff, #0079ff);
+  border-radius: 0.3125rem;
+  color: var(--color-white);
+  margin-left: 0.625rem;
 }
