@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 1748427042748,
+      "email": "afshatshow@gmail.com",
+      "password": "mizo5555"
+    }
+  ],
+  "user": {
+    "userLoggedin": true,
+    "id": 1748427042748
+  }
+}
