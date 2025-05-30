@@ -21,30 +21,32 @@ async function displayMovies(movies) {
   moviesContainer.innerHTML = "";
 
   movies.forEach(async (movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    console.log(movie);
+    const { title, poster_path, vote_average, overview, id } = movie;
     const movieEl = document.createElement("article");
     movieEl.classList.add("movie");
     movieEl.innerHTML = `
-            <figure class="movie__image">
-              <img
-                src="${IMG_PATH + poster_path}"
-                alt="${title}"
-              />
-              <div class="overview">
-              <h3>overview</h3>
-              <p>
-               ${overview.split(" ").slice(0, 20).join(" ")}
-              </p>
-            </div>
-            </figure>
-            
-            <div class="movie-info">
-              <h3>${title}</h3>
-              <span class="rating ${rateColor(
-                vote_average
-              )}">${vote_average}</span>
-            </div>
-    `;
+            <a href="./details.html?id=${id}"> <figure class="movie__image">
+                    <img
+                        src="${IMG_PATH + poster_path}"
+                        alt="${title}"
+                    />
+                    <div class="overview">
+                    <h3>overview</h3>
+                    <p>
+                        ${overview.split(" ").slice(0, 20).join(" ")}
+                    </p>
+                </div>
+                </figure>
+                
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                    <span class="rating ${rateColor(
+                      vote_average
+                    )}">${vote_average}</span>
+                </div>
+            </a>
+        `;
     const authenticatedUser = await isAuthenticated();
     console.log(authenticatedUser);
     if (authenticatedUser) {
@@ -52,6 +54,7 @@ async function displayMovies(movies) {
     }
   });
 }
+
 function rateColor(vote) {
   if (vote > 8) {
     return "green";

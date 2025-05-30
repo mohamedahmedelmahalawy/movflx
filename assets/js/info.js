@@ -1,9 +1,9 @@
 const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&&sort_by=popularity.desc&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=";
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&&sort_by=popularity.desc&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=";
 const SEARCH_BASE_URL = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=`;
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 // const API_URL =
-//   "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=1`;
+//   "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&api_key=b5c4a823548bf14dec6c24c285b7adc1&page=1`;
 
 export const options = {
   method: "GET",

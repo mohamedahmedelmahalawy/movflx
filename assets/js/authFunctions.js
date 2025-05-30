@@ -7,7 +7,6 @@ const isAuthenticated = async () => {
   });
   const data = await user.json();
   const authenticated = data.userLoggedin === true ? true : false;
-  console.log(data[0]);
   return authenticated;
 };
 

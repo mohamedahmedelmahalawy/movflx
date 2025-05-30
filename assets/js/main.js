@@ -7,6 +7,7 @@ const nextPage = document.querySelector(".fetch-next");
 const previousPage = document.querySelector(".fetch-previous");
 const profile = document.querySelector(".profile");
 const logoutNav = document.querySelector(".logout");
+const movies = document.querySelectorAll(".movies-container article");
 
 let pageNum = 1;
 let query = "";
@@ -64,5 +65,11 @@ const logoutHandler = () => {
 };
 
 logoutNav.addEventListener("click", logoutHandler);
+
+movies.forEach((movie) => {
+  movie.addEventListener("click", (e) => {
+    console.log(e.target);
+  });
+});
 
 fetchMovies(API_URL);
