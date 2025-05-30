@@ -22,7 +22,6 @@ async function showMovieDetails() {
   const movieName = detailContainer.querySelector(".name");
   const movieRating = detailContainer.querySelector(".rating");
   const movieOverview = detailContainer.querySelector(".overview");
-  const movievideo = detailContainer.querySelector("video");
 
   const urlParams = new URLSearchParams(window.location.search);
   const movieId = urlParams.get("id");

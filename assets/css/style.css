@@ -337,7 +337,7 @@ main {
   margin-bottom: 5px;
 }
 
-.overview {
+.movies-container .overview {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -403,4 +403,37 @@ main {
 }
 .logout {
   display: none;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.detail {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
+}
+
+.details.container h2 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: rgb(255, 57, 57);
+}
+.details figure.image {
+  max-width: 18.75rem;
+}
+.details .content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 25rem;
 }
