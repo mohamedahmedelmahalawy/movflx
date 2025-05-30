@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -11,70 +11,45 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <header class="header">
-      <video
-        src="./assets/videos/theboys.webm"
-        class="header__video"
-        autoplay
-        muted
-      ></video>
-      <nav class="navbar">
-        <div class="container">
-          <figure>
-            <img src="./assets/img/logo.png" alt="logo" class="navbar__logo" />
-          </figure>
-          <ul class="navbar__links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Series</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="#">Kids</a></li>
-          </ul>
-          <div class="navbar__search_user">
-            <input type="text" placeholder="Search..." id="search-input" />
-            <figure>
-              <img src="./assets/img/user.jpg" alt="boys series video" />
-            </figure>
-            <div class="search">
-              <a href="#" class="card">
-                <img src="./assets/img/the-boys.jpg" alt="card movie image" />
-                <div class="cont">
-                  <h3>The boys</h3>
-                  <p>
-                    action, 2021, <span>IMDB</span
-                    ><i class="fa-solid fa-star"> 9.6</i>
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
+    <div class="bg"></div>
+    <nav class="navbar-home">
+      <div class="container">
+        <figure class="navbar__logo">
+          <img
+            src="https://hotflix.volkovdesign.com/main/img/logo.svg"
+            alt="logo"
+          />
+        </figure>
+        <ul class="navbar__links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Filter </a></li>
+        </ul>
+        <div class="navbar__auth">
+          <form class="search">
+            <input type="text" id="search-input" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </form>
+         <div class="profile">
+           <a href="./assets/pages/login.html" class="login">LogIn</a>
+          <span>/</span>
+          <a href="./assets/pages/signup.html" class="signup">SignUp</a>
+         </div>
+         <a href="./assets/pages/signup.html" class="logout">Logout</a>
         </div>
-      </nav>
-      <section class="content">
-        <h1 id="title">money Heist</h1>
-        <p>
-          When the national mint and a touring school group are held hostage by
-          robbers, police believe that the thieves have no way out. Little do
-          they know that the thieves have a bigger plan in store.
-        </p>
-        <div class="details">
-          <h6>A Netflix Original Film</h6>
-          <h5 id="gen">Thriller</h5>
-          <h4>2021</h4>
-          <h3 id="rate">
-            <span>IMDB</span><i class="fa-solid fa-star"> 9.6</i>
-          </h3>
-        </div>
-        <div class="btns">
-          <a href="#" id="play">Watch <i class="fa-solid fa-play"></i></a>
-          <a href="#" id="download"
-            ><i class="fa-solid fa-cloud-arrow-down"></i
-          ></a>
-        </div>
-      </section>
-    </header>
+      </div>
+    </nav>
+    <main>
+      <div class="container"></div>     
+      <section class="movies-container"></section>
+      <div class="pages">
+        <a href="" class="fetch-previous">Previous Page</a>
+        <a href="" class="fetch-next">Next Page</a>
+      </div>
+      </div>
+    </main>
+    <script src="./assets/js/main.js" type="module"></script>
   </body>
 </html>
