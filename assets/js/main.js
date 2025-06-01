@@ -1,25 +1,39 @@
 import { isAuthenticated, userSignOut } from "./authFunctions.js";
 import { fetchMovies, searchMovies } from "./functions.js";
 import { API_URL, SEARCH_BASE_URL } from "./info.js";
+
 const form = document.querySelector(".search");
 const input = document.querySelector("#search-input");
 const nextPage = document.querySelector(".fetch-next");
 const previousPage = document.querySelector(".fetch-previous");
 const profile = document.querySelector(".profile");
 const logoutNav = document.querySelector(".logout");
-const movies = document.querySelectorAll(".movies-container article");
+const moviesContainer = document.querySelector(".movies-container");
+const paginationBtns = document.querySelector(".pages");
 
 let pageNum = 1;
 let query = "";
 
-addEventListener("load", async (event) => {
-  console.log(isAuthenticated());
-  if (await isAuthenticated()) {
+document.addEventListener("DOMContentLoaded", async () => {
+  const authenticated = await isAuthenticated();
+
+  if (authenticated) {
     profile.style.display = "none";
     logoutNav.style.display = "block";
+    paginationBtns.style.display = "block";
+    moviesContainer.style.display = "grid";
+    fetchMovies(API_URL);
   } else {
     profile.style.display = "block";
     logoutNav.style.display = "none";
+    paginationBtns.style.display = "none";
+    moviesContainer.style.display = "block";
+    moviesContainer.innerHTML = `
+      <h1 style="text-align: center; color: white; margin-top: 50px;">
+        You are not Signed in. Please Sign in to enjoy Movies.
+      </h1>
+    `;
+    form.style.display = "none";
   }
 });
 
@@ -34,6 +48,7 @@ function previousPageHandler(e) {
     }
   }
 }
+
 function nextPageHandler(e) {
   e.preventDefault();
   pageNum++;
@@ -43,6 +58,7 @@ function nextPageHandler(e) {
     fetchMovies(API_URL.slice(0, 170), pageNum);
   }
 }
+
 nextPage.addEventListener("click", nextPageHandler);
 previousPage.addEventListener("click", previousPageHandler);
 
@@ -50,13 +66,13 @@ form.addEventListener("input", (e) => {
   e.preventDefault();
   query = input.value.trim();
 
-  if (query && query !== "") {
+  if (isAuthenticated() && query && query !== "") {
     pageNum = 1;
     searchMovies(pageNum, query);
-    console.log(searchMovies(pageNum, query));
-    // input.value = "";
-  } else {
-    window.location.reload();
+  } else if (!query) {
+    if (isAuthenticated()) {
+      window.location.reload();
+    }
   }
 });
 
@@ -66,17 +82,12 @@ const logoutHandler = () => {
 
 logoutNav.addEventListener("click", logoutHandler);
 
-movies.forEach((movie) => {
-  movie.addEventListener("click", (e) => {
-    console.log(e.target);
-  });
-});
-
 window.addEventListener("DOMContentLoaded", async () => {
-  if (await isAuthenticated()) {
+  const authenticatedForChatbot = await isAuthenticated();
+  if (authenticatedForChatbot) {
     const chatbotAuth = document.querySelector(".chatbot__auth");
-    chatbotAuth.style.display = "block";
+    if (chatbotAuth) {
+      chatbotAuth.style.display = "block";
+    }
   }
 });
-
-fetchMovies(API_URL);
