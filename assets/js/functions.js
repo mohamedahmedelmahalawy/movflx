@@ -8,7 +8,7 @@ async function searchMovies(pageNum = 1, query) {
     options
   );
   const data = await res.json();
-  console.log(data.results);
+  // console.log(data.results);
   displayMovies(data.results);
 }
 async function fetchMovies(url, pagenum = 1) {
@@ -21,7 +21,7 @@ async function displayMovies(movies) {
   moviesContainer.innerHTML = "";
 
   movies.forEach(async (movie) => {
-    console.log(movie);
+    // console.log(movie);
     const { title, poster_path, vote_average, overview, id } = movie;
     const movieEl = document.createElement("article");
     movieEl.classList.add("movie");
@@ -48,7 +48,7 @@ async function displayMovies(movies) {
             </a>
         `;
     const authenticatedUser = await isAuthenticated();
-    console.log(authenticatedUser);
+    // console.log(authenticatedUser);
     if (authenticatedUser) {
       moviesContainer.append(movieEl);
     }

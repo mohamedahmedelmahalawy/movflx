@@ -72,4 +72,11 @@ movies.forEach((movie) => {
   });
 });
 
+window.addEventListener("DOMContentLoaded", async () => {
+  if (await isAuthenticated()) {
+    const chatbotAuth = document.querySelector(".chatbot__auth");
+    chatbotAuth.style.display = "block";
+  }
+});
+
 fetchMovies(API_URL);
