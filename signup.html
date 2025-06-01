@@ -3,34 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="bg"></div>
     <nav class="navbar-home">
       <div class="container">
-        <figure class="navbar__logo">
-          <img
-            src="https://hotflix.volkovdesign.com/main/img/logo.svg"
-            alt="logo"
-          />
-        </figure>
-        <ul class="navbar__links">
+        <a href="/"
+          ><figure class="navbar__logo">
+            <img
+              src="https://hotflix.volkovdesign.com/main/img/logo.svg"
+              alt="logo"
+            /></figure
+        ></a>
+        <!-- <ul class="navbar__links">
           <li><a href="#">Home</a></li>
           <li><a href="#">Filter </a></li>
-        </ul>
+        </ul> -->
         <div class="navbar__auth">
           <form class="search">
             <input type="text" id="search-input" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </form>
           <div class="profile">
-            <a href="./assets/pages/login.html" class="login">LogIn</a>
+            <a href="./login.html" class="login">LogIn</a>
             <span>/</span>
-            <a href="./assets/pages/signup.html" class="signup">SignUp</a>
+            <a href="./signup.html" class="signup">SignUp</a>
           </div>
-          <a href="./assets/pages/signup.html" class="logout">Logout</a>
+          <a href="./signup.html" class="logout">Logout</a>
         </div>
       </div>
     </nav>
@@ -55,6 +56,6 @@
         Already Have An Account? <a href="./login.html">Login</a>
       </h6>
     </section>
-    <script src="../js/signup.js" type="module"></script>
+    <script src="./assets/js/signup.js" type="module"></script>
   </body>
 </html>

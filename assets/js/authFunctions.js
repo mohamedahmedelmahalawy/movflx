@@ -70,4 +70,22 @@ const getUserId = async (email, password) => {
   throw new Error("Invalid credentials");
 };
 
-export { userState, fetchUsers, getUserId, isAuthenticated, userSignOut };
+const getCurrentUserId = async () => {
+  const res = await fetch("http://localhost:3000/user", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const data = await res.json();
+  return data.id;
+};
+
+export {
+  userState,
+  fetchUsers,
+  getUserId,
+  isAuthenticated,
+  userSignOut,
+  getCurrentUserId,
+};

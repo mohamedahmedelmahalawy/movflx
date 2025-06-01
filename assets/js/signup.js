@@ -4,6 +4,17 @@ const emailSignup = document.querySelector(".email__signup input");
 const passwordSignup = document.querySelector(".password__signup input");
 const signupBtn = document.querySelector(".btn__signup");
 
+addEventListener("load", async (event) => {
+  console.log(isAuthenticated());
+  if (await isAuthenticated()) {
+    profile.style.display = "none";
+    logoutNav.style.display = "block";
+  } else {
+    profile.style.display = "block";
+    logoutNav.style.display = "none";
+  }
+});
+
 const signupHandler = async (e) => {
   e.preventDefault();
   try {
