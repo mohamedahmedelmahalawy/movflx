@@ -1,12 +1,19 @@
-import { getCurrentUserId, isAuthenticated } from "./authFunctions.js";
+import {
+  getCurrentUserId,
+  isAuthenticated,
+  userSignOut,
+} from "./authFunctions.js";
 import { options, IMG_PATH } from "./info.js";
 
 const commentsList = document.querySelector(".comments__section ul");
 const addCommentBtn = document.querySelector(".comments__section button");
 const commentInput = document.querySelector(".comments__section input");
-const commentForm = document.querySelector(".comments__section form"); 
+const commentForm = document.querySelector(".comments__section form");
 
-let currentMovieId = null; 
+const profile = document.querySelector(".profile");
+const logoutNav = document.querySelector(".logout");
+
+let currentMovieId = null;
 
 addEventListener("load", async (event) => {
   console.log(isAuthenticated());
@@ -21,23 +28,22 @@ addEventListener("load", async (event) => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
-  currentMovieId = urlParams.get("id"); 
+  currentMovieId = urlParams.get("id");
   if (!currentMovieId) {
     window.location.href = "./index.html";
     return;
   }
 
-  const authenticated = await isAuthenticated(); /
+  const authenticated = await isAuthenticated();
 
   if (!authenticated) {
-    alert("You must be logged in to view movie details."); 
+    alert("You must be logged in to view movie details.");
     window.location.href = "../../login.html";
-    return; 
+    return;
   }
 
-  
   await showMovieDetails();
- 
+
   await fetchAndDisplayComments(currentMovieId, authenticated);
 });
 
@@ -94,7 +100,7 @@ function rateColor(vote) {
 addCommentBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const authenticated = await isAuthenticated();  
+  const authenticated = await isAuthenticated();
   if (!authenticated) {
     alert("You must be logged in to add a comment.");
     return;
@@ -107,14 +113,13 @@ addCommentBtn.addEventListener("click", async (e) => {
 
   const userId = await getCurrentUserId();
   if (!userId) {
-
     alert("Error: Could not retrieve user ID. Please try logging in again.");
     return;
   }
 
   await addComment(currentMovieId, userId, commentInput.value.trim());
-  commentInput.value = ""; 
-  await fetchAndDisplayComments(currentMovieId, authenticated); 
+  commentInput.value = "";
+  await fetchAndDisplayComments(currentMovieId, authenticated);
 });
 
 const addComment = async (movieId, userId, commentText) => {
@@ -151,16 +156,15 @@ async function fetchCommentsForMovie(movieId) {
   return data;
 }
 
-
 async function fetchAndDisplayComments(movieId, isAuthenticatedUser) {
-  commentsList.innerHTML = ""; 
+  commentsList.innerHTML = "";
 
   if (!isAuthenticatedUser) {
-    commentForm.style.display = "none"; 
+    commentForm.style.display = "none";
     const li = document.createElement("li");
     li.innerHTML = `<p>Please log in to view and add comments.</p>`;
     commentsList.appendChild(li);
-    return; 
+    return;
   }
 
   commentForm.style.display = "block";
@@ -191,14 +195,20 @@ async function fetchAndDisplayComments(movieId, isAuthenticatedUser) {
   }
 }
 
+const logoutHandler = () => {
+  userSignOut();
+};
+
 logoutNav.addEventListener("click", logoutHandler);
 
-window.addEventListener("DOMContentLoaded", async () => {
-  const authenticatedForChatbot = await isAuthenticated();
-  if (authenticatedForChatbot) {
-    const chatbotAuth = document.querySelector(".chatbot__auth");
-    if (chatbotAuth) {
-      chatbotAuth.style.display = "block";
-    }
+document.addEventListener("DOMContentLoaded", async () => {
+  const authenticated = await isAuthenticated();
+
+  if (authenticated) {
+    profile.style.display = "none";
+    logoutNav.style.display = "block";
+  } else {
+    profile.style.display = "block";
+    logoutNav.style.display = "none";
   }
 });
