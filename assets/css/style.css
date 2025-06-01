@@ -339,6 +339,9 @@ main {
   transition: var(--transition);
   margin-bottom: 5px;
 }
+.movie-info h3 {
+  color: white;
+}
 
 .movies-container .overview {
   display: flex;
@@ -364,6 +367,7 @@ main {
 }
 .overview p {
   width: 100%;
+  color: white;
 }
 
 .movie:hover .overview {
