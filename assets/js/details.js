@@ -4,9 +4,9 @@ import { options, IMG_PATH } from "./info.js";
 const commentsList = document.querySelector(".comments__section ul");
 const addCommentBtn = document.querySelector(".comments__section button");
 const commentInput = document.querySelector(".comments__section input");
-const commentForm = document.querySelector(".comments__section form"); // Get the entire form element
+const commentForm = document.querySelector(".comments__section form"); 
 
-let currentMovieId = null; // Variable to store the ID of the currently viewed movie
+let currentMovieId = null; 
 
 addEventListener("load", async (event) => {
   console.log(isAuthenticated());
@@ -21,27 +21,23 @@ addEventListener("load", async (event) => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
-  currentMovieId = urlParams.get("id"); // Get movie ID from URL
-
-  // Redirect if no movie ID is found in the URL (invalid access)
+  currentMovieId = urlParams.get("id"); 
   if (!currentMovieId) {
     window.location.href = "./index.html";
     return;
   }
 
-  const authenticated = await isAuthenticated(); // Check user authentication status
+  const authenticated = await isAuthenticated(); /
 
-  // 1. Enforce authentication to view the page
   if (!authenticated) {
-    alert("You must be logged in to view movie details."); // Optional: alert user
-    // Redirect to your login page. Adjust the path if necessary.
-    window.location.href = "./assets/pages/login.html";
-    return; // Stop further execution on this page
+    alert("You must be logged in to view movie details."); 
+    window.location.href = "../../login.html";
+    return; 
   }
 
-  // If authenticated, proceed to show movie details and comments
+  
   await showMovieDetails();
-  // Pass the authentication status to the comment display function
+ 
   await fetchAndDisplayComments(currentMovieId, authenticated);
 });
 
@@ -98,9 +94,7 @@ function rateColor(vote) {
 addCommentBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const authenticated = await isAuthenticated(); // Re-check authentication before adding comment
-
-  // This check is a fallback; the form should be hidden if not authenticated
+  const authenticated = await isAuthenticated();  
   if (!authenticated) {
     alert("You must be logged in to add a comment.");
     return;
@@ -113,14 +107,14 @@ addCommentBtn.addEventListener("click", async (e) => {
 
   const userId = await getCurrentUserId();
   if (!userId) {
-    // This case should ideally not happen if isAuthenticated() was true, but added for robustness
+
     alert("Error: Could not retrieve user ID. Please try logging in again.");
     return;
   }
 
   await addComment(currentMovieId, userId, commentInput.value.trim());
-  commentInput.value = ""; // Clear input after successful comment
-  await fetchAndDisplayComments(currentMovieId, authenticated); // Refresh comments list
+  commentInput.value = ""; 
+  await fetchAndDisplayComments(currentMovieId, authenticated); 
 });
 
 const addComment = async (movieId, userId, commentText) => {
@@ -144,7 +138,6 @@ const addComment = async (movieId, userId, commentText) => {
 };
 
 async function fetchCommentsForMovie(movieId) {
-  // Fetch comments specifically for the current movie ID
   const res = await fetch(`http://localhost:3000/comments?movieId=${movieId}`, {
     method: "GET",
     headers: {
@@ -158,20 +151,18 @@ async function fetchCommentsForMovie(movieId) {
   return data;
 }
 
-// Pass isAuthenticatedUser to control visibility of comment form and content
-async function fetchAndDisplayComments(movieId, isAuthenticatedUser) {
-  commentsList.innerHTML = ""; // Clear existing comments
 
-  // 2. Enforce authentication to comment and view comments
+async function fetchAndDisplayComments(movieId, isAuthenticatedUser) {
+  commentsList.innerHTML = ""; 
+
   if (!isAuthenticatedUser) {
-    commentForm.style.display = "none"; // Hide the comment input form
+    commentForm.style.display = "none"; 
     const li = document.createElement("li");
     li.innerHTML = `<p>Please log in to view and add comments.</p>`;
     commentsList.appendChild(li);
-    return; // Stop here if user is not authenticated for comments section
+    return; 
   }
 
-  // If authenticated, ensure the comment form is visible
   commentForm.style.display = "block";
 
   try {
@@ -199,3 +190,15 @@ async function fetchAndDisplayComments(movieId, isAuthenticatedUser) {
     commentsList.appendChild(li);
   }
 }
+
+logoutNav.addEventListener("click", logoutHandler);
+
+window.addEventListener("DOMContentLoaded", async () => {
+  const authenticatedForChatbot = await isAuthenticated();
+  if (authenticatedForChatbot) {
+    const chatbotAuth = document.querySelector(".chatbot__auth");
+    if (chatbotAuth) {
+      chatbotAuth.style.display = "block";
+    }
+  }
+});

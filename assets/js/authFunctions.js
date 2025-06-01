@@ -40,7 +40,7 @@ const userSignOut = async (id) => {
       id: null,
     }),
   });
-  location.href = "../../index.html";
+  location.href = "./index.html";
   return;
 };
 

@@ -22,7 +22,7 @@ const signupHandler = async (e) => {
     const emailExists = users.find((user) => user.email === emailSignup.value);
     if (emailExists) {
       alert("Email already Existed");
-      location.href = "../pages/login.html";
+      location.href = "../../login.html";
 
       return;
     }

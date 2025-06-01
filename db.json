@@ -79,6 +79,12 @@
       "movieId": "977294",
       "userId": "1748427042748",
       "comment": "new comment"
+    },
+    {
+      "id": "3aae",
+      "movieId": "552524",
+      "userId": "1748427042748",
+      "comment": "comment 1"
     }
   ]
 }

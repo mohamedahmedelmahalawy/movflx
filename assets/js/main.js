@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     profile.style.display = "none";
     logoutNav.style.display = "block";
     paginationBtns.style.display = "block";
-    moviesContainer.style.display = "grid";
+    moviesContainer.style.display = "flex";
     fetchMovies(API_URL);
   } else {
     profile.style.display = "block";
