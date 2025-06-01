@@ -70,8 +70,9 @@ main {
   padding: 1.7rem;
   text-align: center;
   max-width: 566px;
-  align-self: center;
   margin: 0 auto;
+
+  margin-top: 16rem;
 }
 
 .register__logo {
@@ -93,6 +94,7 @@ main {
   padding: 2rem 0;
   font-size: 1rem;
   font-weight: 400;
+  color: var(--color-fifth);
 }
 .form {
   padding: 1.75rem;
@@ -101,7 +103,7 @@ main {
   gap: 20px;
 }
 .form label {
-  color: var(--color-forth);
+  color: var(--color-fifth);
   font-weight: 700;
   text-align: left;
 }
@@ -119,6 +121,7 @@ main {
 .form__item input:focus {
   border: var(--color-secondary) 1px solid;
 }
+
 .form__btn {
   padding: 0.7rem 0.65625rem;
   font-size: 0.77625rem;
@@ -134,7 +137,7 @@ main {
 .form__redirect {
   font-size: 0.875rem;
   font-weight: 400;
-  color: var(--color-forth);
+  color: var(--color-fifth);
   margin-top: 1.75rem;
 }
 
@@ -404,6 +407,9 @@ main {
 .logout {
   display: none;
 }
+.details__section {
+  color: var(--color-fifth);
+}
 .details {
   display: flex;
   flex-direction: column;
@@ -434,6 +440,15 @@ main {
 .detail .content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   max-width: 25rem;
+}
+.details .overview {
+  font-size: 1.2rem;
+}
+.details .rating {
+  background-color: rgba(255, 255, 255, 0.066);
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 0.9375rem;
 }
